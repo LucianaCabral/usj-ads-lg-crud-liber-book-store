@@ -14,8 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
     
         @Autowired
         ClienteRepository clienteRepository;
-
-        
         
         @GetMapping(value="/cadastroC")
         public ModelAndView getListarCliente() {
@@ -70,8 +68,7 @@ import org.springframework.web.servlet.ModelAndView;
             modelAndView.addObject("lista", lista);
             return modelAndView;
         }
-    
-        
+
         @GetMapping(value="/edit/{id}")
         public ModelAndView getEdit(@PathVariable Long id) {
             
@@ -80,8 +77,9 @@ import org.springframework.web.servlet.ModelAndView;
            ModelAndView modelAndView = new ModelAndView("cadastrarC");
            modelAndView.addObject("cliente", cliente);
             return modelAndView;
- 
-            @GetMapping(value="/pesquisar") 
+        }
+        
+        @GetMapping(value="/pesquisar") 
             public String getPesquisar() { 
                 return "pesquisar";                        
             }
@@ -94,8 +92,8 @@ import org.springframework.web.servlet.ModelAndView;
                 modelAndView.addObject("lista", lista);
                 return modelAndView;
         }
+    }
         
-        }
     
     
     
