@@ -87,7 +87,7 @@ public class LivroController {
         return "pesquisar";                        
     }
 
-    @PostMapping(value="pesquisar")
+    @PostMapping(value="/pesquisar")
     public ModelAndView postPesquisar(@RequestParam String livro) {
         List<Livro>lista = livroRepository.findByAutorContainingIgnoreCaseOrderByAutorAsc(livro);
                                                                                                   
