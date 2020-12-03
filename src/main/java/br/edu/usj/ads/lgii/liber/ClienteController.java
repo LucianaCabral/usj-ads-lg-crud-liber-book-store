@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -53,7 +54,6 @@ import org.springframework.web.servlet.ModelAndView;
             return modelAndView;
         }   
     
-       
         @GetMapping(value="/apagar/{id}")
         public ModelAndView getApagar(@PathVariable Long id) {
            
@@ -74,8 +74,18 @@ import org.springframework.web.servlet.ModelAndView;
            modelAndView.addObject("cliente", cliente);
             return modelAndView;
         }
+        @GetMapping(value="/pesquisa") 
+        public String getPesquisa() { 
+            return "pesquisa";
         }
-     
-    
-    
-    
+            @PostMapping(value="/pesquisa")
+            public ModelAndView postPesquisa(@RequestParam String nome) {
+                List<Cliente>lista = clienteRepository.findByNomeContainingIgnoreCaseOrderByNomeAsc(nome);
+                                                                                                          
+                ModelAndView modelAndView = new ModelAndView("cadastroC");
+                modelAndView.addObject("nome", nome);
+                modelAndView.addObject("lista", lista);
+                return modelAndView;
+        }
+     }
+   

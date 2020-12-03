@@ -76,22 +76,22 @@ public class LivroController {
         
         Livro livro = livroRepository.findById(id).get();
 
-        ModelAndView modelAndView = new ModelAndView("cadastrar");//cadastrar
+        ModelAndView modelAndView = new ModelAndView("cadastrar");
         modelAndView.addObject("livro", livro);
         return modelAndView;
     }
 
-   
     @GetMapping(value="/pesquisar") 
     public String getPesquisar() { 
         return "pesquisar";                        
     }
 
     @PostMapping(value="/pesquisar")
-    public ModelAndView postPesquisar(@RequestParam String livro) {
-        List<Livro>lista = livroRepository.findByAutorContainingIgnoreCaseOrderByAutorAsc(livro);
+    public ModelAndView postPesquisar(@RequestParam String autor) {
+        List<Livro>lista = livroRepository.findByAutorContainingIgnoreCaseOrderByAutorAsc(autor);
                                                                                                   
         ModelAndView modelAndView = new ModelAndView("cadastro");
+        modelAndView.addObject("autor", autor);
         modelAndView.addObject("lista", lista);
         return modelAndView;
     }

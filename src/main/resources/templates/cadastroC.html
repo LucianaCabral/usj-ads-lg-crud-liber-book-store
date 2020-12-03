@@ -14,15 +14,13 @@
        </div>
     </div>
         <div class="m-2">
-            <a class="btn btn-primary" href="/pesquisar">Pesquisar</a>
+            <a class="btn btn-primary" href="/pesquisa">Pesquisa</a>
             <a class="btn btn-primary" href="/cadastrarC">Cadastrar novo Cliente</a>
         </div>
             <div class="border" th:if="${lista != null}">
                 <div class="row m-1" th:each="cliente:${lista}">
                     <div class="col-6 border-bottom">
                         <a th:href="@{/mostrar/{id}(id=${cliente.id})}" th:text="${cliente.nome}"></a>
-                        <a th:href="@{/mostrar/{id}(id=${cliente.id})}" th:text="${cliente.cpf}"></a>
-                        <a th:href="@{/mostrar/{id}(id=${cliente.id})}" th:text="${cliente.telefone}">Telefone</a>
                     </div>          
                     <div class="col-3 text-center">
                         <a class="btn btn-success btn-sm" th:href="@{/edit/{id}(id=${cliente.id})}">Editar</a>
