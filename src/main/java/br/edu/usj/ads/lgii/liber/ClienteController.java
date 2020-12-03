@@ -76,7 +76,7 @@ import org.springframework.web.servlet.ModelAndView;
             
             Cliente cliente = clienteRepository.findById(id).get();
     
-           ModelAndView modelAndView = new ModelAndView("cadastroC");
+           ModelAndView modelAndView = new ModelAndView("cadastrarC");
            modelAndView.addObject("cliente", cliente);
             return modelAndView;
         }
