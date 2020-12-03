@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -79,6 +80,19 @@ import org.springframework.web.servlet.ModelAndView;
            ModelAndView modelAndView = new ModelAndView("cadastrarC");
            modelAndView.addObject("cliente", cliente);
             return modelAndView;
+ 
+            @GetMapping(value="/pesquisar") 
+            public String getPesquisar() { 
+                return "pesquisar";                        
+            }
+        
+            @PostMapping(value="/pesquisar")
+            public ModelAndView postPesquisar(@RequestParam String cliente) {
+                List<Cliente>lista = clienteRepository.findByNomeContainingIgnoreCaseOrderByNomeAsc(cliente);
+                                                                                                          
+                ModelAndView modelAndView = new ModelAndView("cadastroC");
+                modelAndView.addObject("lista", lista);
+                return modelAndView;
         }
         
         }
