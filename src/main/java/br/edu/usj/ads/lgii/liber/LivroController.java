@@ -91,8 +91,7 @@ public class LivroController {
     public ModelAndView postPesquisar(@RequestParam String livro) {
         List<Livro>lista = livroRepository.findByAutorContainingIgnoreCaseOrderByAutorAsc(livro);
                                                                                                   
-        ModelAndView modelAndView = new ModelAndView("pesquisar");
-       
+        ModelAndView modelAndView = new ModelAndView("cadastro");
         modelAndView.addObject("lista", lista);
         return modelAndView;
     }
