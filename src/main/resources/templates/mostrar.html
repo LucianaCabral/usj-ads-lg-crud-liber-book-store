@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <title>Books Store</title>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-6">Liber</h1>
+            <p class="lead">Informações do cliente</p>
+            <div class="card text-white bg-success mb-3 w-50">
+                <div class="card-body">
+                    <b>
+                        <h4 class="card-title"></h4>
+                    </b>
+                    <div class="form-group"></div>
+                    <p class="card-text"></p>
+                    <label>Nome</label>
+                    <h4 th:text="${cliente.nome}"></h4>
+                    <label>CPF</label>
+                    <h4 th:text="${cliente.cpf}"></h4>
+                    <label>Telefone</label>
+                    <h4 th:text="${cliente.telefone}"></h4>
+                </div>
+            </div>
+                    <div>
+                        <a class="btn btn-primary" href="/cadastro">Confirmar</a>
+                        <a class="btn btn-success" href="/cadastrar">Editar</a>
+                    </div>
+                    <a href="/">voltar</a> 
+        </div>      
+    </div>
+            <script src="/js/jquery-3.5.1.slim.min.js"></script>
+            <script src="/js/popper.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
